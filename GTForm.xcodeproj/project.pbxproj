@@ -1,0 +1,635 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F12B2EB320AAEC2D007F924B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EB220AAEC2D007F924B /* AppDelegate.m */; };
+		F12B2EB620AAEC2D007F924B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EB520AAEC2D007F924B /* ViewController.m */; };
+		F12B2EB920AAEC2D007F924B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F12B2EB720AAEC2D007F924B /* Main.storyboard */; };
+		F12B2EBB20AAEC2D007F924B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F12B2EBA20AAEC2D007F924B /* Assets.xcassets */; };
+		F12B2EBE20AAEC2D007F924B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F12B2EBC20AAEC2D007F924B /* LaunchScreen.storyboard */; };
+		F12B2EC120AAEC2D007F924B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EC020AAEC2D007F924B /* main.m */; };
+		F12B2F1E20AAEC3E007F924B /* GTForm.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EC820AAEC3D007F924B /* GTForm.m */; };
+		F12B2F1F20AAEC3E007F924B /* XLForm.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F12B2EC920AAEC3D007F924B /* XLForm.bundle */; };
+		F12B2F2020AAEC3E007F924B /* GTFormDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2ECC20AAEC3D007F924B /* GTFormDateCell.m */; };
+		F12B2F2120AAEC3E007F924B /* GTFormPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2ECF20AAEC3D007F924B /* GTFormPickerCell.m */; };
+		F12B2F2220AAEC3E007F924B /* GTFormStaticCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2ED220AAEC3D007F924B /* GTFormStaticCell.m */; };
+		F12B2F2320AAEC3E007F924B /* GTFormTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2ED420AAEC3D007F924B /* GTFormTextViewCell.m */; };
+		F12B2F2420AAEC3E007F924B /* GTFormTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2ED720AAEC3D007F924B /* GTFormTextFieldCell.m */; };
+		F12B2F2520AAEC3E007F924B /* GTFormCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EDA20AAEC3D007F924B /* GTFormCheckCell.m */; };
+		F12B2F2620AAEC3E007F924B /* GTFormImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EDE20AAEC3D007F924B /* GTFormImageCell.m */; };
+		F12B2F2720AAEC3E007F924B /* GTFormSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EE020AAEC3D007F924B /* GTFormSwitchCell.m */; };
+		F12B2F2820AAEC3E007F924B /* GTFormSegmentedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EE220AAEC3D007F924B /* GTFormSegmentedCell.m */; };
+		F12B2F2920AAEC3E007F924B /* GTFormBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EE320AAEC3D007F924B /* GTFormBaseCell.m */; };
+		F12B2F2A20AAEC3E007F924B /* GTFormSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EE620AAEC3D007F924B /* GTFormSliderCell.m */; };
+		F12B2F2B20AAEC3E007F924B /* GTFormStepCounterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EE720AAEC3D007F924B /* GTFormStepCounterCell.m */; };
+		F12B2F2C20AAEC3E007F924B /* GTFormSelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EE820AAEC3D007F924B /* GTFormSelectorCell.m */; };
+		F12B2F2D20AAEC3E007F924B /* GTFormDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EE920AAEC3D007F924B /* GTFormDatePickerCell.m */; };
+		F12B2F2E20AAEC3E007F924B /* GTFormButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EEB20AAEC3D007F924B /* GTFormButtonCell.m */; };
+		F12B2F2F20AAEC3E007F924B /* GTFormInlineSelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EEC20AAEC3D007F924B /* GTFormInlineSelectorCell.m */; };
+		F12B2F3020AAEC3E007F924B /* GTFormLeftRightSelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EED20AAEC3D007F924B /* GTFormLeftRightSelectorCell.m */; };
+		F12B2F3220AAEC3E007F924B /* GTFormSectionDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EF220AAEC3D007F924B /* GTFormSectionDescriptor.m */; };
+		F12B2F3320AAEC3E007F924B /* GTFormDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EF320AAEC3D007F924B /* GTFormDescriptor.m */; };
+		F12B2F3420AAEC3E007F924B /* GTFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EF820AAEC3D007F924B /* GTFormViewController.m */; };
+		F12B2F3520AAEC3E007F924B /* GTFormOptionsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EFA20AAEC3D007F924B /* GTFormOptionsObject.m */; };
+		F12B2F3620AAEC3E007F924B /* GTFormOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EFE20AAEC3D007F924B /* GTFormOptionsViewController.m */; };
+		F12B2F3720AAEC3E007F924B /* GTFormRowNavigationAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F0020AAEC3D007F924B /* GTFormRowNavigationAccessoryView.m */; };
+		F12B2F3820AAEC3E007F924B /* GTFormRightImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F0320AAEC3D007F924B /* GTFormRightImageButton.m */; };
+		F12B2F3920AAEC3E007F924B /* GTFormTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F0520AAEC3D007F924B /* GTFormTextView.m */; };
+		F12B2F3A20AAEC3E007F924B /* GTFormRightDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F0620AAEC3D007F924B /* GTFormRightDetailCell.m */; };
+		F12B2F3B20AAEC3E007F924B /* NSString+GTFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F0B20AAEC3D007F924B /* NSString+GTFormAdditions.m */; };
+		F12B2F3C20AAEC3E007F924B /* NSObject+GTFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F0C20AAEC3D007F924B /* NSObject+GTFormAdditions.m */; };
+		F12B2F3D20AAEC3E007F924B /* NSPredicate+GTFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F0D20AAEC3D007F924B /* NSPredicate+GTFormAdditions.m */; };
+		F12B2F3E20AAEC3E007F924B /* NSExpression+GTFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F0E20AAEC3D007F924B /* NSExpression+GTFormAdditions.m */; };
+		F12B2F3F20AAEC3E007F924B /* UIView+GTFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F1020AAEC3D007F924B /* UIView+GTFormAdditions.m */; };
+		F12B2F4020AAEC3E007F924B /* NSArray+GTFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F1120AAEC3D007F924B /* NSArray+GTFormAdditions.m */; };
+		F12B2F4120AAEC3E007F924B /* GTFormValidationStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F1720AAEC3D007F924B /* GTFormValidationStatus.m */; };
+		F12B2F4220AAEC3E007F924B /* GTFormRegexValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F1820AAEC3D007F924B /* GTFormRegexValidator.m */; };
+		F12B2F4320AAEC3E007F924B /* GTFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F1A20AAEC3D007F924B /* GTFormValidator.m */; };
+		F12B2F4620AAF693007F924B /* GTFormStaticRowDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F4520AAF693007F924B /* GTFormStaticRowDescriptor.m */; };
+		F12B2F4920AB00F8007F924B /* GTFormRowDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F4720AB00F7007F924B /* GTFormRowDescriptor.m */; };
+		F12B2F4C20AB079A007F924B /* UIView+GTFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2F4A20AB079A007F924B /* UIView+GTFrame.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F12B2EAE20AAEC2D007F924B /* GTForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F12B2EB120AAEC2D007F924B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F12B2EB220AAEC2D007F924B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F12B2EB420AAEC2D007F924B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F12B2EB520AAEC2D007F924B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F12B2EB820AAEC2D007F924B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F12B2EBA20AAEC2D007F924B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F12B2EBD20AAEC2D007F924B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F12B2EBF20AAEC2D007F924B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F12B2EC020AAEC2D007F924B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F12B2EC820AAEC3D007F924B /* GTForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTForm.m; sourceTree = "<group>"; };
+		F12B2EC920AAEC3D007F924B /* XLForm.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XLForm.bundle; sourceTree = "<group>"; };
+		F12B2ECB20AAEC3D007F924B /* GTFormSegmentedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormSegmentedCell.h; sourceTree = "<group>"; };
+		F12B2ECC20AAEC3D007F924B /* GTFormDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormDateCell.m; sourceTree = "<group>"; };
+		F12B2ECD20AAEC3D007F924B /* GTFormSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormSwitchCell.h; sourceTree = "<group>"; };
+		F12B2ECE20AAEC3D007F924B /* GTFormDescriptorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormDescriptorCell.h; sourceTree = "<group>"; };
+		F12B2ECF20AAEC3D007F924B /* GTFormPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormPickerCell.m; sourceTree = "<group>"; };
+		F12B2ED020AAEC3D007F924B /* GTFormImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormImageCell.h; sourceTree = "<group>"; };
+		F12B2ED120AAEC3D007F924B /* GTFormStepCounterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormStepCounterCell.h; sourceTree = "<group>"; };
+		F12B2ED220AAEC3D007F924B /* GTFormStaticCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormStaticCell.m; sourceTree = "<group>"; };
+		F12B2ED320AAEC3D007F924B /* GTFormSliderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormSliderCell.h; sourceTree = "<group>"; };
+		F12B2ED420AAEC3D007F924B /* GTFormTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormTextViewCell.m; sourceTree = "<group>"; };
+		F12B2ED520AAEC3D007F924B /* GTFormBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormBaseCell.h; sourceTree = "<group>"; };
+		F12B2ED620AAEC3D007F924B /* GTFormInlineRowDescriptorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormInlineRowDescriptorCell.h; sourceTree = "<group>"; };
+		F12B2ED720AAEC3D007F924B /* GTFormTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormTextFieldCell.m; sourceTree = "<group>"; };
+		F12B2ED820AAEC3D007F924B /* GTFormDatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormDatePickerCell.h; sourceTree = "<group>"; };
+		F12B2ED920AAEC3D007F924B /* GTFormSelectorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormSelectorCell.h; sourceTree = "<group>"; };
+		F12B2EDA20AAEC3D007F924B /* GTFormCheckCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormCheckCell.m; sourceTree = "<group>"; };
+		F12B2EDB20AAEC3D007F924B /* GTFormLeftRightSelectorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormLeftRightSelectorCell.h; sourceTree = "<group>"; };
+		F12B2EDC20AAEC3D007F924B /* GTFormInlineSelectorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormInlineSelectorCell.h; sourceTree = "<group>"; };
+		F12B2EDD20AAEC3D007F924B /* GTFormButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormButtonCell.h; sourceTree = "<group>"; };
+		F12B2EDE20AAEC3D007F924B /* GTFormImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormImageCell.m; sourceTree = "<group>"; };
+		F12B2EDF20AAEC3D007F924B /* GTFormPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormPickerCell.h; sourceTree = "<group>"; };
+		F12B2EE020AAEC3D007F924B /* GTFormSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormSwitchCell.m; sourceTree = "<group>"; };
+		F12B2EE120AAEC3D007F924B /* GTFormDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormDateCell.h; sourceTree = "<group>"; };
+		F12B2EE220AAEC3D007F924B /* GTFormSegmentedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormSegmentedCell.m; sourceTree = "<group>"; };
+		F12B2EE320AAEC3D007F924B /* GTFormBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormBaseCell.m; sourceTree = "<group>"; };
+		F12B2EE420AAEC3D007F924B /* GTFormTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormTextViewCell.h; sourceTree = "<group>"; };
+		F12B2EE520AAEC3D007F924B /* GTFormStaticCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormStaticCell.h; sourceTree = "<group>"; };
+		F12B2EE620AAEC3D007F924B /* GTFormSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormSliderCell.m; sourceTree = "<group>"; };
+		F12B2EE720AAEC3D007F924B /* GTFormStepCounterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormStepCounterCell.m; sourceTree = "<group>"; };
+		F12B2EE820AAEC3D007F924B /* GTFormSelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormSelectorCell.m; sourceTree = "<group>"; };
+		F12B2EE920AAEC3D007F924B /* GTFormDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormDatePickerCell.m; sourceTree = "<group>"; };
+		F12B2EEA20AAEC3D007F924B /* GTFormTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormTextFieldCell.h; sourceTree = "<group>"; };
+		F12B2EEB20AAEC3D007F924B /* GTFormButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormButtonCell.m; sourceTree = "<group>"; };
+		F12B2EEC20AAEC3D007F924B /* GTFormInlineSelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormInlineSelectorCell.m; sourceTree = "<group>"; };
+		F12B2EED20AAEC3D007F924B /* GTFormLeftRightSelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormLeftRightSelectorCell.m; sourceTree = "<group>"; };
+		F12B2EEE20AAEC3D007F924B /* GTFormCheckCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormCheckCell.h; sourceTree = "<group>"; };
+		F12B2EF120AAEC3D007F924B /* GTFormDescriptorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormDescriptorDelegate.h; sourceTree = "<group>"; };
+		F12B2EF220AAEC3D007F924B /* GTFormSectionDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormSectionDescriptor.m; sourceTree = "<group>"; };
+		F12B2EF320AAEC3D007F924B /* GTFormDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormDescriptor.m; sourceTree = "<group>"; };
+		F12B2EF520AAEC3D007F924B /* GTFormSectionDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormSectionDescriptor.h; sourceTree = "<group>"; };
+		F12B2EF620AAEC3D007F924B /* GTFormDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormDescriptor.h; sourceTree = "<group>"; };
+		F12B2EF820AAEC3D007F924B /* GTFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormViewController.m; sourceTree = "<group>"; };
+		F12B2EF920AAEC3D007F924B /* GTFormOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormOptionsViewController.h; sourceTree = "<group>"; };
+		F12B2EFA20AAEC3D007F924B /* GTFormOptionsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormOptionsObject.m; sourceTree = "<group>"; };
+		F12B2EFB20AAEC3D007F924B /* GTFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormViewController.h; sourceTree = "<group>"; };
+		F12B2EFC20AAEC3D007F924B /* GTFormRowDescriptorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormRowDescriptorViewController.h; sourceTree = "<group>"; };
+		F12B2EFD20AAEC3D007F924B /* GTFormOptionsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormOptionsObject.h; sourceTree = "<group>"; };
+		F12B2EFE20AAEC3D007F924B /* GTFormOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormOptionsViewController.m; sourceTree = "<group>"; };
+		F12B2F0020AAEC3D007F924B /* GTFormRowNavigationAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormRowNavigationAccessoryView.m; sourceTree = "<group>"; };
+		F12B2F0120AAEC3D007F924B /* GTFormRightDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormRightDetailCell.h; sourceTree = "<group>"; };
+		F12B2F0220AAEC3D007F924B /* GTFormTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormTextView.h; sourceTree = "<group>"; };
+		F12B2F0320AAEC3D007F924B /* GTFormRightImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormRightImageButton.m; sourceTree = "<group>"; };
+		F12B2F0420AAEC3D007F924B /* GTFormRowNavigationAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormRowNavigationAccessoryView.h; sourceTree = "<group>"; };
+		F12B2F0520AAEC3D007F924B /* GTFormTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormTextView.m; sourceTree = "<group>"; };
+		F12B2F0620AAEC3D007F924B /* GTFormRightDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormRightDetailCell.m; sourceTree = "<group>"; };
+		F12B2F0720AAEC3D007F924B /* GTFormRightImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormRightImageButton.h; sourceTree = "<group>"; };
+		F12B2F0920AAEC3D007F924B /* NSArray+GTFormAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GTFormAdditions.h"; sourceTree = "<group>"; };
+		F12B2F0A20AAEC3D007F924B /* UIView+GTFormAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GTFormAdditions.h"; sourceTree = "<group>"; };
+		F12B2F0B20AAEC3D007F924B /* NSString+GTFormAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GTFormAdditions.m"; sourceTree = "<group>"; };
+		F12B2F0C20AAEC3D007F924B /* NSObject+GTFormAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GTFormAdditions.m"; sourceTree = "<group>"; };
+		F12B2F0D20AAEC3D007F924B /* NSPredicate+GTFormAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+GTFormAdditions.m"; sourceTree = "<group>"; };
+		F12B2F0E20AAEC3D007F924B /* NSExpression+GTFormAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSExpression+GTFormAdditions.m"; sourceTree = "<group>"; };
+		F12B2F0F20AAEC3D007F924B /* NSString+GTFormAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GTFormAdditions.h"; sourceTree = "<group>"; };
+		F12B2F1020AAEC3D007F924B /* UIView+GTFormAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GTFormAdditions.m"; sourceTree = "<group>"; };
+		F12B2F1120AAEC3D007F924B /* NSArray+GTFormAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GTFormAdditions.m"; sourceTree = "<group>"; };
+		F12B2F1220AAEC3D007F924B /* NSObject+GTFormAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GTFormAdditions.h"; sourceTree = "<group>"; };
+		F12B2F1320AAEC3D007F924B /* NSExpression+GTFormAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSExpression+GTFormAdditions.h"; sourceTree = "<group>"; };
+		F12B2F1420AAEC3D007F924B /* NSPredicate+GTFormAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPredicate+GTFormAdditions.h"; sourceTree = "<group>"; };
+		F12B2F1620AAEC3D007F924B /* GTFormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormValidator.h; sourceTree = "<group>"; };
+		F12B2F1720AAEC3D007F924B /* GTFormValidationStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormValidationStatus.m; sourceTree = "<group>"; };
+		F12B2F1820AAEC3D007F924B /* GTFormRegexValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormRegexValidator.m; sourceTree = "<group>"; };
+		F12B2F1920AAEC3D007F924B /* GTFormValidatorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormValidatorProtocol.h; sourceTree = "<group>"; };
+		F12B2F1A20AAEC3D007F924B /* GTFormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormValidator.m; sourceTree = "<group>"; };
+		F12B2F1B20AAEC3D007F924B /* GTFormValidationStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormValidationStatus.h; sourceTree = "<group>"; };
+		F12B2F1C20AAEC3D007F924B /* GTFormRegexValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormRegexValidator.h; sourceTree = "<group>"; };
+		F12B2F1D20AAEC3D007F924B /* GTForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTForm.h; sourceTree = "<group>"; };
+		F12B2F4420AAF693007F924B /* GTFormStaticRowDescriptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTFormStaticRowDescriptor.h; sourceTree = "<group>"; };
+		F12B2F4520AAF693007F924B /* GTFormStaticRowDescriptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTFormStaticRowDescriptor.m; sourceTree = "<group>"; };
+		F12B2F4720AB00F7007F924B /* GTFormRowDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFormRowDescriptor.m; sourceTree = "<group>"; };
+		F12B2F4820AB00F7007F924B /* GTFormRowDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFormRowDescriptor.h; sourceTree = "<group>"; };
+		F12B2F4A20AB079A007F924B /* UIView+GTFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GTFrame.m"; sourceTree = "<group>"; };
+		F12B2F4B20AB079A007F924B /* UIView+GTFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GTFrame.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F12B2EAB20AAEC2D007F924B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F12B2EA520AAEC2D007F924B = {
+			isa = PBXGroup;
+			children = (
+				F12B2EB020AAEC2D007F924B /* GTForm */,
+				F12B2EAF20AAEC2D007F924B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F12B2EAF20AAEC2D007F924B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F12B2EAE20AAEC2D007F924B /* GTForm.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F12B2EB020AAEC2D007F924B /* GTForm */ = {
+			isa = PBXGroup;
+			children = (
+				F12B2EC720AAEC3D007F924B /* GTForm */,
+				F12B2EB120AAEC2D007F924B /* AppDelegate.h */,
+				F12B2EB220AAEC2D007F924B /* AppDelegate.m */,
+				F12B2EB420AAEC2D007F924B /* ViewController.h */,
+				F12B2EB520AAEC2D007F924B /* ViewController.m */,
+				F12B2EB720AAEC2D007F924B /* Main.storyboard */,
+				F12B2EBA20AAEC2D007F924B /* Assets.xcassets */,
+				F12B2EBC20AAEC2D007F924B /* LaunchScreen.storyboard */,
+				F12B2EBF20AAEC2D007F924B /* Info.plist */,
+				F12B2EC020AAEC2D007F924B /* main.m */,
+			);
+			path = GTForm;
+			sourceTree = "<group>";
+		};
+		F12B2EC720AAEC3D007F924B /* GTForm */ = {
+			isa = PBXGroup;
+			children = (
+				F12B2ECA20AAEC3D007F924B /* Cell */,
+				F12B2EF720AAEC3D007F924B /* Controllers */,
+				F12B2EEF20AAEC3D007F924B /* Descriptors */,
+				F12B2F1D20AAEC3D007F924B /* GTForm.h */,
+				F12B2EC820AAEC3D007F924B /* GTForm.m */,
+				F12B2F0820AAEC3D007F924B /* Helpers */,
+				F12B2F1520AAEC3D007F924B /* Validation */,
+				F12B2EFF20AAEC3D007F924B /* Views */,
+				F12B2EC920AAEC3D007F924B /* XLForm.bundle */,
+			);
+			path = GTForm;
+			sourceTree = "<group>";
+		};
+		F12B2ECA20AAEC3D007F924B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F12B2ED520AAEC3D007F924B /* GTFormBaseCell.h */,
+				F12B2EE320AAEC3D007F924B /* GTFormBaseCell.m */,
+				F12B2EDD20AAEC3D007F924B /* GTFormButtonCell.h */,
+				F12B2EEB20AAEC3D007F924B /* GTFormButtonCell.m */,
+				F12B2EEE20AAEC3D007F924B /* GTFormCheckCell.h */,
+				F12B2EDA20AAEC3D007F924B /* GTFormCheckCell.m */,
+				F12B2EE120AAEC3D007F924B /* GTFormDateCell.h */,
+				F12B2ECC20AAEC3D007F924B /* GTFormDateCell.m */,
+				F12B2ED820AAEC3D007F924B /* GTFormDatePickerCell.h */,
+				F12B2EE920AAEC3D007F924B /* GTFormDatePickerCell.m */,
+				F12B2ECE20AAEC3D007F924B /* GTFormDescriptorCell.h */,
+				F12B2ED020AAEC3D007F924B /* GTFormImageCell.h */,
+				F12B2EDE20AAEC3D007F924B /* GTFormImageCell.m */,
+				F12B2ED620AAEC3D007F924B /* GTFormInlineRowDescriptorCell.h */,
+				F12B2EDC20AAEC3D007F924B /* GTFormInlineSelectorCell.h */,
+				F12B2EEC20AAEC3D007F924B /* GTFormInlineSelectorCell.m */,
+				F12B2EDB20AAEC3D007F924B /* GTFormLeftRightSelectorCell.h */,
+				F12B2EED20AAEC3D007F924B /* GTFormLeftRightSelectorCell.m */,
+				F12B2EDF20AAEC3D007F924B /* GTFormPickerCell.h */,
+				F12B2ECF20AAEC3D007F924B /* GTFormPickerCell.m */,
+				F12B2ECB20AAEC3D007F924B /* GTFormSegmentedCell.h */,
+				F12B2EE220AAEC3D007F924B /* GTFormSegmentedCell.m */,
+				F12B2ED920AAEC3D007F924B /* GTFormSelectorCell.h */,
+				F12B2EE820AAEC3D007F924B /* GTFormSelectorCell.m */,
+				F12B2ED320AAEC3D007F924B /* GTFormSliderCell.h */,
+				F12B2EE620AAEC3D007F924B /* GTFormSliderCell.m */,
+				F12B2EE520AAEC3D007F924B /* GTFormStaticCell.h */,
+				F12B2ED220AAEC3D007F924B /* GTFormStaticCell.m */,
+				F12B2ED120AAEC3D007F924B /* GTFormStepCounterCell.h */,
+				F12B2EE720AAEC3D007F924B /* GTFormStepCounterCell.m */,
+				F12B2ECD20AAEC3D007F924B /* GTFormSwitchCell.h */,
+				F12B2EE020AAEC3D007F924B /* GTFormSwitchCell.m */,
+				F12B2EEA20AAEC3D007F924B /* GTFormTextFieldCell.h */,
+				F12B2ED720AAEC3D007F924B /* GTFormTextFieldCell.m */,
+				F12B2EE420AAEC3D007F924B /* GTFormTextViewCell.h */,
+				F12B2ED420AAEC3D007F924B /* GTFormTextViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F12B2EEF20AAEC3D007F924B /* Descriptors */ = {
+			isa = PBXGroup;
+			children = (
+				F12B2EF620AAEC3D007F924B /* GTFormDescriptor.h */,
+				F12B2EF320AAEC3D007F924B /* GTFormDescriptor.m */,
+				F12B2EF120AAEC3D007F924B /* GTFormDescriptorDelegate.h */,
+				F12B2EF520AAEC3D007F924B /* GTFormSectionDescriptor.h */,
+				F12B2EF220AAEC3D007F924B /* GTFormSectionDescriptor.m */,
+				F12B2F4820AB00F7007F924B /* GTFormRowDescriptor.h */,
+				F12B2F4720AB00F7007F924B /* GTFormRowDescriptor.m */,
+				F12B2F4420AAF693007F924B /* GTFormStaticRowDescriptor.h */,
+				F12B2F4520AAF693007F924B /* GTFormStaticRowDescriptor.m */,
+			);
+			path = Descriptors;
+			sourceTree = "<group>";
+		};
+		F12B2EF720AAEC3D007F924B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F12B2EFD20AAEC3D007F924B /* GTFormOptionsObject.h */,
+				F12B2EFA20AAEC3D007F924B /* GTFormOptionsObject.m */,
+				F12B2EF920AAEC3D007F924B /* GTFormOptionsViewController.h */,
+				F12B2EFE20AAEC3D007F924B /* GTFormOptionsViewController.m */,
+				F12B2EFC20AAEC3D007F924B /* GTFormRowDescriptorViewController.h */,
+				F12B2EFB20AAEC3D007F924B /* GTFormViewController.h */,
+				F12B2EF820AAEC3D007F924B /* GTFormViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F12B2EFF20AAEC3D007F924B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F12B2F0120AAEC3D007F924B /* GTFormRightDetailCell.h */,
+				F12B2F0620AAEC3D007F924B /* GTFormRightDetailCell.m */,
+				F12B2F0720AAEC3D007F924B /* GTFormRightImageButton.h */,
+				F12B2F0320AAEC3D007F924B /* GTFormRightImageButton.m */,
+				F12B2F0420AAEC3D007F924B /* GTFormRowNavigationAccessoryView.h */,
+				F12B2F0020AAEC3D007F924B /* GTFormRowNavigationAccessoryView.m */,
+				F12B2F0220AAEC3D007F924B /* GTFormTextView.h */,
+				F12B2F0520AAEC3D007F924B /* GTFormTextView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F12B2F0820AAEC3D007F924B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F12B2F0920AAEC3D007F924B /* NSArray+GTFormAdditions.h */,
+				F12B2F1120AAEC3D007F924B /* NSArray+GTFormAdditions.m */,
+				F12B2F1320AAEC3D007F924B /* NSExpression+GTFormAdditions.h */,
+				F12B2F0E20AAEC3D007F924B /* NSExpression+GTFormAdditions.m */,
+				F12B2F1220AAEC3D007F924B /* NSObject+GTFormAdditions.h */,
+				F12B2F0C20AAEC3D007F924B /* NSObject+GTFormAdditions.m */,
+				F12B2F1420AAEC3D007F924B /* NSPredicate+GTFormAdditions.h */,
+				F12B2F0D20AAEC3D007F924B /* NSPredicate+GTFormAdditions.m */,
+				F12B2F0F20AAEC3D007F924B /* NSString+GTFormAdditions.h */,
+				F12B2F0B20AAEC3D007F924B /* NSString+GTFormAdditions.m */,
+				F12B2F0A20AAEC3D007F924B /* UIView+GTFormAdditions.h */,
+				F12B2F1020AAEC3D007F924B /* UIView+GTFormAdditions.m */,
+				F12B2F4B20AB079A007F924B /* UIView+GTFrame.h */,
+				F12B2F4A20AB079A007F924B /* UIView+GTFrame.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F12B2F1520AAEC3D007F924B /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				F12B2F1C20AAEC3D007F924B /* GTFormRegexValidator.h */,
+				F12B2F1820AAEC3D007F924B /* GTFormRegexValidator.m */,
+				F12B2F1B20AAEC3D007F924B /* GTFormValidationStatus.h */,
+				F12B2F1720AAEC3D007F924B /* GTFormValidationStatus.m */,
+				F12B2F1620AAEC3D007F924B /* GTFormValidator.h */,
+				F12B2F1A20AAEC3D007F924B /* GTFormValidator.m */,
+				F12B2F1920AAEC3D007F924B /* GTFormValidatorProtocol.h */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F12B2EAD20AAEC2D007F924B /* GTForm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F12B2EC420AAEC2D007F924B /* Build configuration list for PBXNativeTarget "GTForm" */;
+			buildPhases = (
+				F12B2EAA20AAEC2D007F924B /* Sources */,
+				F12B2EAB20AAEC2D007F924B /* Frameworks */,
+				F12B2EAC20AAEC2D007F924B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GTForm;
+			productName = GTForm;
+			productReference = F12B2EAE20AAEC2D007F924B /* GTForm.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F12B2EA620AAEC2D007F924B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = liuxc;
+				TargetAttributes = {
+					F12B2EAD20AAEC2D007F924B = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F12B2EA920AAEC2D007F924B /* Build configuration list for PBXProject "GTForm" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F12B2EA520AAEC2D007F924B;
+			productRefGroup = F12B2EAF20AAEC2D007F924B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F12B2EAD20AAEC2D007F924B /* GTForm */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F12B2EAC20AAEC2D007F924B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F12B2EBE20AAEC2D007F924B /* LaunchScreen.storyboard in Resources */,
+				F12B2F1F20AAEC3E007F924B /* XLForm.bundle in Resources */,
+				F12B2EBB20AAEC2D007F924B /* Assets.xcassets in Resources */,
+				F12B2EB920AAEC2D007F924B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F12B2EAA20AAEC2D007F924B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F12B2F3A20AAEC3E007F924B /* GTFormRightDetailCell.m in Sources */,
+				F12B2EB620AAEC2D007F924B /* ViewController.m in Sources */,
+				F12B2F2A20AAEC3E007F924B /* GTFormSliderCell.m in Sources */,
+				F12B2F3320AAEC3E007F924B /* GTFormDescriptor.m in Sources */,
+				F12B2EC120AAEC2D007F924B /* main.m in Sources */,
+				F12B2F3B20AAEC3E007F924B /* NSString+GTFormAdditions.m in Sources */,
+				F12B2F2C20AAEC3E007F924B /* GTFormSelectorCell.m in Sources */,
+				F12B2F3E20AAEC3E007F924B /* NSExpression+GTFormAdditions.m in Sources */,
+				F12B2F4320AAEC3E007F924B /* GTFormValidator.m in Sources */,
+				F12B2F2720AAEC3E007F924B /* GTFormSwitchCell.m in Sources */,
+				F12B2F3220AAEC3E007F924B /* GTFormSectionDescriptor.m in Sources */,
+				F12B2F3420AAEC3E007F924B /* GTFormViewController.m in Sources */,
+				F12B2F2120AAEC3E007F924B /* GTFormPickerCell.m in Sources */,
+				F12B2F4120AAEC3E007F924B /* GTFormValidationStatus.m in Sources */,
+				F12B2F2520AAEC3E007F924B /* GTFormCheckCell.m in Sources */,
+				F12B2F2020AAEC3E007F924B /* GTFormDateCell.m in Sources */,
+				F12B2F2F20AAEC3E007F924B /* GTFormInlineSelectorCell.m in Sources */,
+				F12B2F1E20AAEC3E007F924B /* GTForm.m in Sources */,
+				F12B2F3F20AAEC3E007F924B /* UIView+GTFormAdditions.m in Sources */,
+				F12B2F3920AAEC3E007F924B /* GTFormTextView.m in Sources */,
+				F12B2F3020AAEC3E007F924B /* GTFormLeftRightSelectorCell.m in Sources */,
+				F12B2F3820AAEC3E007F924B /* GTFormRightImageButton.m in Sources */,
+				F12B2F2420AAEC3E007F924B /* GTFormTextFieldCell.m in Sources */,
+				F12B2F2E20AAEC3E007F924B /* GTFormButtonCell.m in Sources */,
+				F12B2F2820AAEC3E007F924B /* GTFormSegmentedCell.m in Sources */,
+				F12B2F2620AAEC3E007F924B /* GTFormImageCell.m in Sources */,
+				F12B2F3720AAEC3E007F924B /* GTFormRowNavigationAccessoryView.m in Sources */,
+				F12B2F4920AB00F8007F924B /* GTFormRowDescriptor.m in Sources */,
+				F12B2F4020AAEC3E007F924B /* NSArray+GTFormAdditions.m in Sources */,
+				F12B2F4C20AB079A007F924B /* UIView+GTFrame.m in Sources */,
+				F12B2EB320AAEC2D007F924B /* AppDelegate.m in Sources */,
+				F12B2F2920AAEC3E007F924B /* GTFormBaseCell.m in Sources */,
+				F12B2F3C20AAEC3E007F924B /* NSObject+GTFormAdditions.m in Sources */,
+				F12B2F2B20AAEC3E007F924B /* GTFormStepCounterCell.m in Sources */,
+				F12B2F2320AAEC3E007F924B /* GTFormTextViewCell.m in Sources */,
+				F12B2F2D20AAEC3E007F924B /* GTFormDatePickerCell.m in Sources */,
+				F12B2F3520AAEC3E007F924B /* GTFormOptionsObject.m in Sources */,
+				F12B2F4220AAEC3E007F924B /* GTFormRegexValidator.m in Sources */,
+				F12B2F4620AAF693007F924B /* GTFormStaticRowDescriptor.m in Sources */,
+				F12B2F3D20AAEC3E007F924B /* NSPredicate+GTFormAdditions.m in Sources */,
+				F12B2F3620AAEC3E007F924B /* GTFormOptionsViewController.m in Sources */,
+				F12B2F2220AAEC3E007F924B /* GTFormStaticCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F12B2EB720AAEC2D007F924B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F12B2EB820AAEC2D007F924B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F12B2EBC20AAEC2D007F924B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F12B2EBD20AAEC2D007F924B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F12B2EC220AAEC2D007F924B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F12B2EC320AAEC2D007F924B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F12B2EC520AAEC2D007F924B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5SBN9974PS;
+				INFOPLIST_FILE = GTForm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liuxc.GTForm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F12B2EC620AAEC2D007F924B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5SBN9974PS;
+				INFOPLIST_FILE = GTForm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liuxc.GTForm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F12B2EA920AAEC2D007F924B /* Build configuration list for PBXProject "GTForm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F12B2EC220AAEC2D007F924B /* Debug */,
+				F12B2EC320AAEC2D007F924B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F12B2EC420AAEC2D007F924B /* Build configuration list for PBXNativeTarget "GTForm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F12B2EC520AAEC2D007F924B /* Debug */,
+				F12B2EC620AAEC2D007F924B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F12B2EA620AAEC2D007F924B /* Project object */;
+}
