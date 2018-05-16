@@ -496,6 +496,23 @@
     }
 }
 
++ (UIView *)createHeaderOrFooterViewWithTitle:(NSString *)title {
+    if ([title isEqualToString:@""] || title == nil) {
+        return nil;
+    }
+    UIView *view = [[UIView alloc] init];
+    UILabel *label = [[UILabel alloc] init];
+    label.font = [UIFont systemFontOfSize:14.0f];
+    label.textAlignment = NSTextAlignmentLeft;
+    label.textColor = [UIColor grayColor];
+    label.text = title;
+    label.numberOfLines = 0;
+    label.frame = (CGRect){{15.0f, 8}, [title GTForm_sizeWithFont:label.font maxWidth:[UIScreen mainScreen].bounds.size.width - 30 maxHeight:CGFLOAT_MAX]};
+    [view addSubview:label];
+    view.frame = CGRectMake(0, 0, 0, CGRectGetHeight(label.frame));
+    return view;
+}
+
 #pragma mark - Private
 
 - (void)contentSizeCategoryChanged:(NSNotification *)notification
@@ -704,14 +721,26 @@
 
 #pragma mark - UITableViewDelegate
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return [[self.form.formSections objectAtIndex:section] title];
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    NSLog(@"headerHeight%f", [[self.form.formSections objectAtIndex:section] headerHeight]);
+    return [[self.form.formSections objectAtIndex:section] headerHeight];
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    NSLog(@"footerHeight%f", [[self.form.formSections objectAtIndex:section] footerHeight]);
+    return [[self.form.formSections objectAtIndex:section] footerHeight];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return [[self.form.formSections objectAtIndex:section] footerTitle];
+    NSString *title = [[self.form.formSections objectAtIndex:section] title];
+    return  [GTFormViewController createHeaderOrFooterViewWithTitle:title];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    NSString *title = [[self.form.formSections objectAtIndex:section] footerTitle];
+    return [GTFormViewController createHeaderOrFooterViewWithTitle:title];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

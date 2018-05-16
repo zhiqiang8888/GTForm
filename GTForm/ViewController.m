@@ -40,7 +40,9 @@ NSString * const kFormatters = @"Formatters";
 
     form = [GTFormDescriptor formDescriptor];
 
-    section = [GTFormSectionDescriptor formSectionWithTitle:@"Real examples"];
+    section = [GTFormSectionDescriptor formSectionWithTitle:@""];
+    section.headerHeight = 0;
+    section.footerHeight = 0;
     [form addFormSection:section];
 
     // NativeEventFormViewController
@@ -48,7 +50,6 @@ NSString * const kFormatters = @"Formatters";
 //    row.action.viewControllerStoryboardId = @"aaa";
 
     GTFormStaticRowDescriptor* row1 = [GTFormStaticRowDescriptor formStaticRowDescriptorWithTag:@"realExamples" title:@"realExamples0" detailTitle:@"车市一" icon:@"icon" staticStyle:GTFormStaticTypeIcon];
-
 
 
     row1.detailStyle      = GTFormStaticDetailStyleBottom;  // 设置detailTextLabel位置
@@ -61,14 +62,17 @@ NSString * const kFormatters = @"Formatters";
 
     [section addFormRow:row1];
 
+    GTFormSectionDescriptor *section1 = [GTFormSectionDescriptor formSectionWithTitle:@""];
+    section1.headerHeight = 0;
+    section1.footerHeight = 0;
+    [form addFormSection:section1];
+
     GTFormStaticRowDescriptor* row2 = [GTFormStaticRowDescriptor formStaticRowDescriptorWithTag:@"realExamples1" title:@"realExamples1" detailTitle:@"啊啊啊啊" icon:@"ic_favorites" staticStyle:GTFormStaticTypeArrow];
     
     row2.detailStyle = GTFormStaticDetailStyleRight;
     row2.detailTitle = @"哈哈哈";
+    [section1 addFormRow:row2];
 
-    [section addFormRow:row2];
-
-    
     self.form = form;
     
     

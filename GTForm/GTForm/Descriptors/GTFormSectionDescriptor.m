@@ -71,6 +71,8 @@
         _hidden = @NO;
         _hidePredicateCache = @NO;
         _isDirtyHidePredicateCache = YES;
+        _headerHeight = UITableViewAutomaticDimension;
+        _footerHeight = UITableViewAutomaticDimension;
         [self addObserver:self forKeyPath:@"formRows" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:0];
     }
     return self;
@@ -82,6 +84,8 @@
         _sectionInsertMode = sectionInsertMode;
         _sectionOptions = sectionOptions;
         _title = title;
+        _headerHeight = UITableViewAutomaticDimension;
+        _footerHeight = UITableViewAutomaticDimension;
         if ([self canInsertUsingButton]){
             _multivaluedAddButton = [GTFormRowDescriptor formRowDescriptorWithTag:nil rowType:GTFormRowDescriptorTypeButton title:@"Add Item"];
             [_multivaluedAddButton.cellConfig setObject:@(NSTextAlignmentNatural) forKey:@"textLabel.textAlignment"];
@@ -116,6 +120,22 @@
 +(instancetype)formSectionWithTitle:(NSString *)title sectionOptions:(GTFormSectionOptions)sectionOptions sectionInsertMode:(GTFormSectionInsertMode)sectionInsertMode
 {
     return [[[self class] alloc] initWithTitle:title sectionOptions:sectionOptions sectionInsertMode:sectionInsertMode];
+}
+
+- (void)setHeaderHeight:(CGFloat)headerHeight {
+    _headerHeight = headerHeight;
+
+    if (headerHeight == 0) {
+        _headerHeight = 0.1;
+    }
+}
+
+- (void)setFooterHeight:(CGFloat)footerHeight {
+    _footerHeight = footerHeight;
+
+    if (footerHeight == 0) {
+        _footerHeight = 0.1;
+    }
 }
 
 -(BOOL)isMultivaluedSection

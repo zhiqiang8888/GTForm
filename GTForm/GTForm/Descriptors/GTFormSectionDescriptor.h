@@ -45,6 +45,8 @@ typedef NS_ENUM(NSUInteger, GTFormSectionInsertMode) {
 @property (nonatomic, nullable) NSString * title;
 @property (nonatomic, nullable) NSString * footerTitle;
 @property (readonly, nonnull) NSMutableArray * formRows;
+@property (nonatomic) CGFloat headerHeight;             
+@property (nonatomic) CGFloat footerHeight;
 
 @property (readonly) GTFormSectionInsertMode sectionInsertMode;
 @property (readonly) GTFormSectionOptions sectionOptions;

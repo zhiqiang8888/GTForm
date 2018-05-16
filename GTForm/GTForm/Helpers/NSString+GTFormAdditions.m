@@ -62,4 +62,18 @@
     return [NSString stringWithFormat:@"%@-%@", self, (predicateType == XLPredicateTypeHidden ? @"hidden" : @"disabled") ];
 }
 
+- (CGSize)GTForm_sizeWithFont:(UIFont *)font maxWidth:(CGFloat)maxWidth maxHeight:(CGFloat)maxHeight
+{
+    if (self.length) {
+        NSDictionary *attributes = @{NSFontAttributeName : font};
+        CGSize maxSize = CGSizeMake(maxWidth, maxHeight);
+        return [self boundingRectWithSize:maxSize
+                                  options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                               attributes:attributes
+                                  context:nil].size;
+    } else {
+        return CGSizeZero;
+    }
+}
+
 @end
