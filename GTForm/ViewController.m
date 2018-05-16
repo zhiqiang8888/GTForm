@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "WeChatViewController.h"
 
 NSString * const kTextFieldAndTextView = @"TextFieldAndTextView";
 NSString * const kSelectors = @"Selectors";
@@ -45,12 +46,7 @@ NSString * const kFormatters = @"Formatters";
     section.footerHeight = 0;
     [form addFormSection:section];
 
-    // NativeEventFormViewController
-//    row = [GTFormRowDescriptor formRowDescriptorWithTag:@"realExamples" rowType:GTFormRowDescriptorTypeButton title:@"iOS Calendar Event Form"];
-//    row.action.viewControllerStoryboardId = @"aaa";
-
     GTFormStaticRowDescriptor* row1 = [GTFormStaticRowDescriptor formStaticRowDescriptorWithTag:@"realExamples" title:@"realExamples0" detailTitle:@"车市一" icon:@"icon" staticStyle:GTFormStaticTypeIcon];
-
 
     row1.detailStyle      = GTFormStaticDetailStyleBottom;  // 设置detailTextLabel位置
     row1.detailTitle      = @"微信号：12345";
@@ -68,10 +64,12 @@ NSString * const kFormatters = @"Formatters";
     [form addFormSection:section1];
 
     GTFormStaticRowDescriptor* row2 = [GTFormStaticRowDescriptor formStaticRowDescriptorWithTag:@"realExamples1" title:@"realExamples1" detailTitle:@"啊啊啊啊" icon:@"ic_favorites" staticStyle:GTFormStaticTypeArrow];
-    
+    row2.action.formSegueClass = [WeChatViewController class];
     row2.detailStyle = GTFormStaticDetailStyleRight;
     row2.detailTitle = @"哈哈哈";
     [section1 addFormRow:row2];
+    
+    
 
     self.form = form;
     
