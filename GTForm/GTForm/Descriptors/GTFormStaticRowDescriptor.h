@@ -7,6 +7,13 @@
 //
 
 #import "GTFormRowDescriptor.h"
+#import "GTForm.h"
+
+typedef NS_ENUM(NSUInteger, GTFormStaticType) {
+    GTFormStaticTypeNormal,    // 显示在左边
+    GTFormStaticTypeArrow,  // 显示在中间
+    GTFormStaticTypeIcon,    // 显示在右边
+};
 
 //_UITableViewCellSeparatorView
 typedef NS_ENUM(NSUInteger, GTFormStaticCellSeparatorAlignType) {
@@ -30,19 +37,26 @@ typedef NS_ENUM(NSUInteger, GTFormStaticIconStyle) {
     GTFormStaticIconStyleRight    // 显示在右边
 };
 
+
+
 @interface GTFormStaticRowDescriptor : GTFormRowDescriptor
 
 /****************** staticCell类型的设置属性 ******************/
+@property (nonatomic, strong) UIColor *backgroundColor;
+
+@property (nonatomic, strong) UIColor *selectBackgroundColor;
+
 /** 详情标题 **/
 @property (nullable) NSString * detailTitle;
 
 /** icon的image对象，优先级最高 */
 @property (nonatomic, strong) UIImage *iconImage;
+
 /** icon图片的本地名称或网络地址 */
 @property (nonatomic) NSString *icon;
-/** icon图片的尺寸,默认60 */
+/** icon图片的尺寸,默认nil */
 @property (nonatomic, assign) CGSize iconSize;
-/** icon圆角度数,默认宽度的一半 */
+/** icon圆角度数,默认5*/
 @property (nonatomic, assign) CGFloat iconCornerRadius;
 /** 默认黑色 */
 @property (nonatomic, strong) UIColor *iconBorderColor;
@@ -50,13 +64,10 @@ typedef NS_ENUM(NSUInteger, GTFormStaticIconStyle) {
 @property (nonatomic, assign) CGFloat iconBorderWidth;
 /** 头像显示的位置 */
 @property (nonatomic, assign) GTFormStaticIconStyle iconStyle;
-
 /** 是否隐藏右箭头，默认NO */
 @property (nonatomic, assign) BOOL hideArrow;
-
 /** 箭头的图片 */
 @property (nonatomic, strong) UIImage *arrowImage;
-
 /** textLabel距离左边（cell或imageView）的距离，默认15 */
 @property (nonatomic, assign) CGFloat textSpace;
 /** 设置字体大小 */
@@ -69,11 +80,17 @@ typedef NS_ENUM(NSUInteger, GTFormStaticIconStyle) {
 @property (nonatomic, assign) GTFormStaticCellSeparatorAlignType separatorAlignType;
 /** detailText类型，默认None */
 @property (nonatomic, assign) GTFormStaticDetailStyle detailStyle;
+/** detailText类型，默认None */
+@property (nonatomic, assign) GTFormStaticType staticStyle;
 
-+(instancetype)formRowDescriptorWithTag:(NSString *)tag rowType:(NSString *)rowType title:(NSString *)title detailTitle:(NSString *)detailTitle;
-+ (instancetype)formRowDescriptorWithTag:(NSString *)tag rowType:(NSString *)rowType title:(NSString *)title icon:(NSString *)icon;
-+(instancetype)formRowDescriptorWithTag:(NSString *)tag rowType:(NSString *)rowType title:(NSString *)title detailTitle:(NSString *)detailTitle icon:(NSString *)icon;
-/****************** staticCell类型的设置属性 ******************/
++ (instancetype)formStaticRowDescriptorWithTag:(NSString *)tag title:(NSString *)title staticStyle:(GTFormStaticType)staticStyle;
+
++ (instancetype)formStaticRowDescriptorWithTag:(NSString *)tag title:(NSString *)title detailTitle:(NSString *)detailTitle staticStyle:(GTFormStaticType)staticStyle;
+
++ (instancetype)formStaticRowDescriptorWithTag:(NSString *)tag title:(NSString *)title icon:(NSString *)icon staticStyle:(GTFormStaticType)staticStyle;
+
++ (instancetype)formStaticRowDescriptorWithTag:(NSString *)tag title:(NSString *)title detailTitle:(NSString *)detailTitle icon:(NSString *)icon staticStyle:(GTFormStaticType)staticStyle;
+
 
 
 @end

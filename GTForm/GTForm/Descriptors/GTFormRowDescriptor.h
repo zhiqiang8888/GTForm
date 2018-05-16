@@ -47,14 +47,18 @@ typedef void(^GTOnChangeBlock)(id __nullable oldValue,id __nullable newValue,GTF
 
 @interface GTFormRowDescriptor : NSObject
 
-@property (nullable) id cellClass;
-@property (readwrite, nullable) NSString * tag;
-@property (readonly, nonnull) NSString * rowType;
-@property (nullable) NSString * title;
-@property (nonatomic, nullable) id value;
+
+@property (nullable) id cellClass;                      //cell类
+@property (readwrite, nullable) NSString * tag;         //标记tag
+@property (readonly, nonnull) NSString * rowType;       //row类型
+@property (nullable) NSString * title;                  //标题
+@property (nonatomic, nullable) id value;               //值（任意类型 根据cell不同情况返回）
 @property (nullable) Class valueTransformer;
-@property UITableViewCellStyle cellStyle;
-@property (nonatomic) CGFloat height;
+@property (nonatomic) CGFloat height;                   //cell高度
+
+@property UITableViewCellStyle cellStyle;               //cellStyle
+@property UITableViewCellAccessoryType accessoryType;   //accessoryType
+@property UITableViewCellSelectionStyle selectionStyle; //selectionStyle
 
 @property (copy, nullable) GTOnChangeBlock onChangeBlock;
 @property BOOL useValueFormatterDuringInput;

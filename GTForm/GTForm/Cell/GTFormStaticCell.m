@@ -17,16 +17,21 @@
 }
 
 @property (nonatomic, strong) GTFormStaticRowDescriptor *staticRowDescriptor;
+@property (nonatomic, strong) GTFormStaticRowDescriptor *settingItem;
 
 @end
 
 @implementation GTFormStaticCell
 
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    return [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+}
+
 - (void)configure
 {
     [super configure];
     [self setupData];
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 
@@ -37,7 +42,18 @@
 }
 
 - (void)setupData {
-    
+
+    if (self.staticRowDescriptor.backgroundColor) {
+        UIView *backgroundView = [UIView new];
+        backgroundView.backgroundColor = self.staticRowDescriptor.backgroundColor;
+        self.backgroundView = backgroundView;
+    }
+
+    if (self.staticRowDescriptor.selectBackgroundColor) {
+        UIView *selectedBackgroundView = [UIView new];
+        selectedBackgroundView.backgroundColor = self.staticRowDescriptor.selectBackgroundColor;
+        self.selectedBackgroundView = selectedBackgroundView;
+    }
 
     if (self.staticRowDescriptor.iconImage) {
         self.imageView.image = self.staticRowDescriptor.iconImage;
@@ -45,7 +61,7 @@
         // 判断是否是网络图片
         if ([self.staticRowDescriptor.icon hasPrefix:@"http"]) {
             // 使用时需要加入SDWebImage
-            //            [self.imageView sd_setImageWithURL:[NSURL URLWithString:staticRowDescriptor.icon]];
+//          [self.imageView sd_setImageWithURL:[NSURL URLWithString:staticRowDescriptor.icon]];
         }else {
             self.imageView.image = [UIImage imageNamed:self.staticRowDescriptor.icon];
         }
@@ -80,14 +96,18 @@
         self.detailTextLabel.textColor = [UIColor colorWithRed:0.556863 green:0.556863 blue:0.576471 alpha:1.0];
     }
 
-    if (self.staticRowDescriptor.icon != nil && ![self.staticRowDescriptor.icon isEqual: @""]) {
-        [self setupIconItem];
-    } else if (!self.staticRowDescriptor.hideArrow) {
-        [self setupArrowItem];
-    } else {
-        self.accessoryView  = nil;
-        self.accessoryType  = UITableViewCellAccessoryNone;
-        self.selectionStyle = UITableViewCellSelectionStyleDefault;
+    switch (self.staticRowDescriptor.staticStyle) {
+        case GTFormStaticTypeIcon:
+            [self setupIconItem];
+            break;
+        case GTFormStaticTypeArrow:
+            [self setupArrowItem];
+            break;
+        default:
+            self.accessoryView  = nil;
+            self.accessoryType  = UITableViewCellAccessoryNone;
+            self.selectionStyle = UITableViewCellSelectionStyleDefault;
+            break;
     }
 }
 
@@ -96,21 +116,25 @@
     if (!self.imageView.image) {
         self.imageView.frame = CGRectZero;
     }
-    
+
     if (!self.textLabel.text || [self.textLabel.text isEqualToString:@""]) {
         self.textLabel.frame = CGRectZero;
     }
-    
+
     self.textLabel.left = self.imageView.right + self.staticRowDescriptor.textSpace;
-    
-    if (self.staticRowDescriptor.icon != nil && ![self.staticRowDescriptor.icon isEqual: @""]) {
-        [self setupIconFrames];
-    } else if (!self.staticRowDescriptor.hideArrow) {
-        [self setupArrowFrames];
-    } else {
-        [self setupDetailFrames];
+
+    switch (self.staticRowDescriptor.staticStyle) {
+        case GTFormStaticTypeIcon:
+            [self setupIconFrames];
+            break;
+        case GTFormStaticTypeArrow:
+            [self setupArrowFrames];
+            break;
+        default:
+            [self setupDetailFrames];
+            break;
     }
-    
+
     // 设置分割线的frame
     [self setupSeparactorFrames];
 }
@@ -119,11 +143,11 @@
 - (void)setupDetailFrames {
     self.detailTextLabel.hidden = NO;
     [self.detailTextLabel sizeToFit];
-    
+
     if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleNone) {
         self.detailTextLabel.hidden = YES;
     }else if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleRight) {
-        if (!self.staticRowDescriptor.hidden) {
+        if (self.staticRowDescriptor.staticStyle == GTFormStaticTypeArrow) {
             self.detailTextLabel.right = self.staticRowDescriptor.hideArrow ? self.width - 15 : self.contentView.right;
         }else {
             if (self.accessoryView == nil || self.accessoryType == UITableViewCellAccessoryNone) {
@@ -132,6 +156,9 @@
                 self.detailTextLabel.right = self.contentView.right;
             }
         }
+
+        self.detailTextLabel.right = self.staticRowDescriptor.hideArrow ? self.width - 15 : self.contentView.right;
+
     }else if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleBottom) {
         self.textLabel.top          = 2;
         self.detailTextLabel.bottom = self.height - 2;
@@ -180,6 +207,8 @@
             self.detailTextLabel.hidden = YES;
         }
     }
+
+    NSLog(@"%f", self.detailTextLabel.frame.origin.x);
 }
 
 - (void)setupSeparactorFrames {
@@ -234,8 +263,6 @@
 - (void)setupIconItem {
     [self setupArrowItem];
 
-    GTFormStaticIconStyle *item = (GTFormStaticIconStyle *)self.staticRowDescriptor.iconStyle;
-
     self.imageView.layer.cornerRadius  = self.staticRowDescriptor.iconCornerRadius;
     self.imageView.layer.masksToBounds = YES;
     self.imageView.layer.borderColor   = self.staticRowDescriptor.iconBorderColor.CGColor;
@@ -243,8 +270,6 @@
 }
 
 - (void)setupArrowItem {
-    GTFormStaticIconStyle *item = (GTFormStaticIconStyle *)self.staticRowDescriptor.iconStyle;
-
     if (self.staticRowDescriptor.hideArrow) {
         self.accessoryView = nil;
         _arrowImageView    = nil;
@@ -268,5 +293,7 @@
     return (GTFormStaticRowDescriptor *)self.rowDescriptor;
 }
 
-
+- (GTFormStaticRowDescriptor *)settingItem {
+    return (GTFormStaticRowDescriptor *)self.rowDescriptor;
+}
 @end

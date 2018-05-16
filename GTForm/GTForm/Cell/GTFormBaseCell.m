@@ -48,6 +48,8 @@
 
 - (void)update
 {
+    self.accessoryType = self.rowDescriptor.accessoryType;
+    self.selectionStyle = self.rowDescriptor.selectionStyle;
     self.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     self.detailTextLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     self.textLabel.textColor  = self.rowDescriptor.isDisabled ? [UIColor grayColor] : [UIColor blackColor];

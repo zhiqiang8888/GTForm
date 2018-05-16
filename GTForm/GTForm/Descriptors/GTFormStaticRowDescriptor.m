@@ -11,35 +11,43 @@
 @implementation GTFormStaticRowDescriptor
 
 
-+(instancetype)formRowDescriptorWithTag:(NSString *)tag rowType:(NSString *)rowType title:(NSString *)title detailTitle:(NSString *)detailTitle;
++ (instancetype)formStaticRowDescriptorWithTag:(NSString *)tag title:(NSString *)title staticStyle:(GTFormStaticType)staticStyle
 {
-    GTFormStaticRowDescriptor *staticRowDescriptor = [[self alloc] initWithTag:tag rowType:rowType title:title];
+    GTFormStaticRowDescriptor *staticRowDescriptor = [[self alloc] initWithTag:tag rowType:GTFormRowDescriptorTypeStatic title:title];
+    [staticRowDescriptor initData];
+    staticRowDescriptor.staticStyle = staticStyle;
+    return staticRowDescriptor;
+}
+
++ (instancetype)formStaticRowDescriptorWithTag:(NSString *)tag title:(NSString *)title detailTitle:(NSString *)detailTitle staticStyle:(GTFormStaticType)staticStyle
+{
+    GTFormStaticRowDescriptor *staticRowDescriptor = [[self alloc] initWithTag:tag rowType:GTFormRowDescriptorTypeStatic title:title];
     [staticRowDescriptor initData];
     staticRowDescriptor.detailTitle = detailTitle;
-    
+    staticRowDescriptor.staticStyle = staticStyle;
     return staticRowDescriptor;
 }
 
-
-+ (instancetype)formRowDescriptorWithTag:(NSString *)tag rowType:(NSString *)rowType title:(NSString *)title icon:(NSString *)icon
++ (instancetype)formStaticRowDescriptorWithTag:(NSString *)tag title:(NSString *)title icon:(NSString *)icon staticStyle:(GTFormStaticType)staticStyle
 {
-    GTFormStaticRowDescriptor *staticRowDescriptor = [[self alloc] initWithTag:tag rowType:rowType title:title];
+    GTFormStaticRowDescriptor *staticRowDescriptor = [[self alloc] initWithTag:tag rowType:GTFormRowDescriptorTypeStatic title:title];
     [staticRowDescriptor initData];
     staticRowDescriptor.icon = icon;
-    
+    staticRowDescriptor.staticStyle = staticStyle;
     return staticRowDescriptor;
-
 }
 
-+ (instancetype)formRowDescriptorWithTag:(NSString *)tag rowType:(NSString *)rowType title:(NSString *)title detailTitle:(NSString *)detailTitle icon:(NSString *)icon
++ (instancetype)formStaticRowDescriptorWithTag:(NSString *)tag title:(NSString *)title detailTitle:(NSString *)detailTitle icon:(NSString *)icon staticStyle:(GTFormStaticType)staticStyle
 {
-    GTFormStaticRowDescriptor *staticRowDescriptor = [[self alloc] initWithTag:tag rowType:rowType title:title];
+    GTFormStaticRowDescriptor *staticRowDescriptor = [[self alloc] initWithTag:tag rowType:GTFormRowDescriptorTypeStatic title:title];
     [staticRowDescriptor initData];
+    staticRowDescriptor.icon = icon;
     staticRowDescriptor.detailTitle = detailTitle;
-    staticRowDescriptor.icon = icon;
-    
+    staticRowDescriptor.staticStyle = staticStyle;
     return staticRowDescriptor;
 }
+
+
 
 - (void)initData {
     _iconImage = nil;
@@ -53,8 +61,8 @@
     _detailTextFont = nil;
     _separatorAlignType = GTFormStaticCellSeparatorAlignTypeImage;
     _detailStyle = GTFormStaticDetailStyleBottom;
-    _iconSize = CGSizeMake(60, 60);
-    _iconCornerRadius = 0;
+    _iconSize = CGSizeMake(30, 30);
+    _iconCornerRadius = 5;
     _iconBorderWidth = 0;
     _iconStyle = GTFormStaticIconStyleLeft;
     _hideArrow = NO;
