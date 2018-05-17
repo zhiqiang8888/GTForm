@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04260ED020AD2D6700D3B81D /* GTFormTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 04260ECF20AD2D6700D3B81D /* GTFormTool.m */; };
+		04260ED320AD51ED00D3B81D /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04260ED220AD51ED00D3B81D /* PersonalViewController.m */; };
 		F12B2EB320AAEC2D007F924B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EB220AAEC2D007F924B /* AppDelegate.m */; };
 		F12B2EB620AAEC2D007F924B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12B2EB520AAEC2D007F924B /* ViewController.m */; };
 		F12B2EB920AAEC2D007F924B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F12B2EB720AAEC2D007F924B /* Main.storyboard */; };
@@ -57,6 +59,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04260ECE20AD2D6700D3B81D /* GTFormTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTFormTool.h; sourceTree = "<group>"; };
+		04260ECF20AD2D6700D3B81D /* GTFormTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTFormTool.m; sourceTree = "<group>"; };
+		04260ED120AD51ED00D3B81D /* PersonalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		04260ED220AD51ED00D3B81D /* PersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
 		F12B2EAE20AAEC2D007F924B /* GTForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F12B2EB120AAEC2D007F924B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F12B2EB220AAEC2D007F924B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -321,6 +327,8 @@
 				F12B2F1020AAEC3D007F924B /* UIView+GTFormAdditions.m */,
 				F12B2F4B20AB079A007F924B /* UIView+GTFrame.h */,
 				F12B2F4A20AB079A007F924B /* UIView+GTFrame.m */,
+				04260ECE20AD2D6700D3B81D /* GTFormTool.h */,
+				04260ECF20AD2D6700D3B81D /* GTFormTool.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -344,6 +352,8 @@
 			children = (
 				F12B2F4E20AC6676007F924B /* WeChatViewController.h */,
 				F12B2F4F20AC6676007F924B /* WeChatViewController.m */,
+				04260ED120AD51ED00D3B81D /* PersonalViewController.h */,
+				04260ED220AD51ED00D3B81D /* PersonalViewController.m */,
 			);
 			path = WeChat;
 			sourceTree = "<group>";
@@ -438,6 +448,7 @@
 				F12B2F2020AAEC3E007F924B /* GTFormDateCell.m in Sources */,
 				F12B2F2F20AAEC3E007F924B /* GTFormInlineSelectorCell.m in Sources */,
 				F12B2F1E20AAEC3E007F924B /* GTForm.m in Sources */,
+				04260ED320AD51ED00D3B81D /* PersonalViewController.m in Sources */,
 				F12B2F3F20AAEC3E007F924B /* UIView+GTFormAdditions.m in Sources */,
 				F12B2F3920AAEC3E007F924B /* GTFormTextView.m in Sources */,
 				F12B2F3020AAEC3E007F924B /* GTFormLeftRightSelectorCell.m in Sources */,
@@ -460,6 +471,7 @@
 				F12B2F3520AAEC3E007F924B /* GTFormOptionsObject.m in Sources */,
 				F12B2F4220AAEC3E007F924B /* GTFormRegexValidator.m in Sources */,
 				F12B2F4620AAF693007F924B /* GTFormStaticRowDescriptor.m in Sources */,
+				04260ED020AD2D6700D3B81D /* GTFormTool.m in Sources */,
 				F12B2F3D20AAEC3E007F924B /* NSPredicate+GTFormAdditions.m in Sources */,
 				F12B2F3620AAEC3E007F924B /* GTFormOptionsViewController.m in Sources */,
 				F12B2F2220AAEC3E007F924B /* GTFormStaticCell.m in Sources */,

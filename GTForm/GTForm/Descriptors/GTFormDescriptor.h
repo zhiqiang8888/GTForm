@@ -29,7 +29,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSString * __nonnull const GTFormErrorDomain;
-extern NSString * __nonnull const XLValidationStatusErrorKey;
+extern NSString * __nonnull const GTValidationStatusErrorKey;
 
 typedef NS_ENUM(NSInteger, GTFormErrorCode)
 {

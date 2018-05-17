@@ -57,9 +57,9 @@
 }
 
 
--(NSString *)formKeyForPredicateType:(XLPredicateType)predicateType
+-(NSString *)formKeyForPredicateType:(GTPredicateType)predicateType
 {
-    return [NSString stringWithFormat:@"%@-%@", self, (predicateType == XLPredicateTypeHidden ? @"hidden" : @"disabled") ];
+    return [NSString stringWithFormat:@"%@-%@", self, (predicateType == GTPredicateTypeHidden ? @"hidden" : @"disabled") ];
 }
 
 - (CGSize)GTForm_sizeWithFont:(UIFont *)font maxWidth:(CGFloat)maxWidth maxHeight:(CGFloat)maxHeight

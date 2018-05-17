@@ -35,8 +35,8 @@ CGFloat GTFormRowInitialHeight = -2;
 
 @property (readonly) NSDictionary* allRowsByTag;
 
--(void)addObserversOfObject:(id)sectionOrRow predicateType:(XLPredicateType)predicateType;
--(void)removeObserversOfObject:(id)sectionOrRow predicateType:(XLPredicateType)predicateType;
+-(void)addObserversOfObject:(id)sectionOrRow predicateType:(GTPredicateType)predicateType;
+-(void)removeObserversOfObject:(id)sectionOrRow predicateType:(GTPredicateType)predicateType;
 
 @end
 
@@ -295,8 +295,8 @@ CGFloat GTFormRowInitialHeight = -2;
 
 -(void)dealloc
 {
-    [self.sectionDescriptor.formDescriptor removeObserversOfObject:self predicateType:XLPredicateTypeDisabled];
-    [self.sectionDescriptor.formDescriptor removeObserversOfObject:self predicateType:XLPredicateTypeHidden];
+    [self.sectionDescriptor.formDescriptor removeObserversOfObject:self predicateType:GTPredicateTypeDisabled];
+    [self.sectionDescriptor.formDescriptor removeObserversOfObject:self predicateType:GTPredicateTypeHidden];
     @try {
         [self removeObserver:self forKeyPath:@"value"];
     }
@@ -327,7 +327,7 @@ CGFloat GTFormRowInitialHeight = -2;
                 }
             }
             else{
-                [self.sectionDescriptor.formDescriptor.delegate formRowDescriptorPredicateHasChanged:object oldValue:oldValue newValue:newValue predicateType:([keyPath isEqualToString:@"hidePredicateCache"] ? XLPredicateTypeHidden : XLPredicateTypeDisabled)];
+                [self.sectionDescriptor.formDescriptor.delegate formRowDescriptorPredicateHasChanged:object oldValue:oldValue newValue:newValue predicateType:([keyPath isEqualToString:@"hidePredicateCache"] ? GTPredicateTypeHidden : GTPredicateTypeDisabled)];
             }
         }
     }
@@ -349,11 +349,11 @@ CGFloat GTFormRowInitialHeight = -2;
 -(void)setDisabled:(id)disabled
 {
     if ([_disabled isKindOfClass:[NSPredicate class]]){
-        [self.sectionDescriptor.formDescriptor removeObserversOfObject:self predicateType:XLPredicateTypeDisabled];
+        [self.sectionDescriptor.formDescriptor removeObserversOfObject:self predicateType:GTPredicateTypeDisabled];
     }
     _disabled = [disabled isKindOfClass:[NSString class]] ? [disabled formPredicate] : disabled;
     if ([_disabled isKindOfClass:[NSPredicate class]]){
-        [self.sectionDescriptor.formDescriptor addObserversOfObject:self predicateType:XLPredicateTypeDisabled];
+        [self.sectionDescriptor.formDescriptor addObserversOfObject:self predicateType:GTPredicateTypeDisabled];
     }
 
     [self evaluateIsDisabled];
@@ -458,11 +458,11 @@ CGFloat GTFormRowInitialHeight = -2;
 -(void)setHidden:(id)hidden
 {
     if ([_hidden isKindOfClass:[NSPredicate class]]){
-        [self.sectionDescriptor.formDescriptor removeObserversOfObject:self predicateType:XLPredicateTypeHidden];
+        [self.sectionDescriptor.formDescriptor removeObserversOfObject:self predicateType:GTPredicateTypeHidden];
     }
     _hidden = [hidden isKindOfClass:[NSString class]] ? [hidden formPredicate] : hidden;
     if ([_hidden isKindOfClass:[NSPredicate class]]){
-        [self.sectionDescriptor.formDescriptor addObserversOfObject:self predicateType:XLPredicateTypeHidden];
+        [self.sectionDescriptor.formDescriptor addObserversOfObject:self predicateType:GTPredicateTypeHidden];
     }
     [self evaluateIsHidden]; // check and update if this row should be hidden.
 }

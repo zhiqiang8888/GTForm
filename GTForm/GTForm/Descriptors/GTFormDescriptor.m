@@ -30,7 +30,7 @@
 #import "NSString+GTFormAdditions.h"
 
 NSString * const GTFormErrorDomain = @"GTFormErrorDomain";
-NSString * const XLValidationStatusErrorKey = @"XLValidationStatusErrorKey";
+NSString * const GTValidationStatusErrorKey = @"GTValidationStatusErrorKey";
 
 
 @interface GTFormSectionDescriptor (_GTFormDescriptor)
@@ -352,7 +352,7 @@ NSString * const XLValidationStatusErrorKey = @"XLValidationStatusErrorKey";
             GTFormValidationStatus* status = [row doValidation];
             if (status != nil && (![status isValid])) {
                 NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: status.msg,
-                                            XLValidationStatusErrorKey: status };
+                                            GTValidationStatusErrorKey: status };
                 NSError * error = [[NSError alloc] initWithDomain:GTFormErrorDomain code:GTFormErrorCodeGen userInfo:userInfo];
                 if (error){
                     [result addObject:error];
@@ -449,10 +449,10 @@ NSString * const XLValidationStatusErrorKey = @"XLValidationStatusErrorKey";
     GTFormSectionDescriptor* section = [self.allSections objectAtIndex:index];
     [section.allRows enumerateObjectsUsingBlock:^(id obj, NSUInteger __unused idx, BOOL *stop) {
         GTFormRowDescriptor * row = (id)obj;
-        [self removeObserversOfObject:row predicateType:XLPredicateTypeDisabled];
-        [self removeObserversOfObject:row predicateType:XLPredicateTypeHidden];
+        [self removeObserversOfObject:row predicateType:GTPredicateTypeDisabled];
+        [self removeObserversOfObject:row predicateType:GTPredicateTypeHidden];
     }];
-    [self removeObserversOfObject:section predicateType:XLPredicateTypeHidden];
+    [self removeObserversOfObject:section predicateType:GTPredicateTypeHidden];
     [self.allSections removeObjectAtIndex:index];
 }
 
@@ -559,12 +559,12 @@ NSString * const XLValidationStatusErrorKey = @"XLValidationStatusErrorKey";
 }
 
 
--(void)addObserversOfObject:(id)sectionOrRow predicateType:(XLPredicateType)predicateType
+-(void)addObserversOfObject:(id)sectionOrRow predicateType:(GTPredicateType)predicateType
 {
     NSPredicate* predicate;
     id descriptor;
     switch(predicateType){
-        case XLPredicateTypeHidden:
+        case GTPredicateTypeHidden:
             if ([sectionOrRow isKindOfClass:([GTFormRowDescriptor class])]) {
                 descriptor = ((GTFormRowDescriptor*)sectionOrRow).tag;
                 predicate = ((GTFormRowDescriptor*)sectionOrRow).hidden;
@@ -574,7 +574,7 @@ NSString * const XLValidationStatusErrorKey = @"XLValidationStatusErrorKey";
                 predicate = ((GTFormSectionDescriptor*)sectionOrRow).hidden;
             }
             break;
-        case XLPredicateTypeDisabled:
+        case GTPredicateTypeDisabled:
             if ([sectionOrRow isKindOfClass:([GTFormRowDescriptor class])]) {
                 descriptor = ((GTFormRowDescriptor*)sectionOrRow).tag;
                 predicate = ((GTFormRowDescriptor*)sectionOrRow).disabled;
@@ -595,12 +595,12 @@ NSString * const XLValidationStatusErrorKey = @"XLValidationStatusErrorKey";
     
 }
 
--(void)removeObserversOfObject:(id)sectionOrRow predicateType:(XLPredicateType)predicateType
+-(void)removeObserversOfObject:(id)sectionOrRow predicateType:(GTPredicateType)predicateType
 {
     NSPredicate* predicate;
     id descriptor;
     switch(predicateType){
-        case XLPredicateTypeHidden:
+        case GTPredicateTypeHidden:
             if ([sectionOrRow isKindOfClass:([GTFormRowDescriptor class])]) {
                 descriptor = ((GTFormRowDescriptor*)sectionOrRow).tag;
                 predicate = ((GTFormRowDescriptor*)sectionOrRow).hidden;
@@ -610,7 +610,7 @@ NSString * const XLValidationStatusErrorKey = @"XLValidationStatusErrorKey";
                 predicate = ((GTFormSectionDescriptor*)sectionOrRow).hidden;
             }
             break;
-        case XLPredicateTypeDisabled:
+        case GTPredicateTypeDisabled:
             if ([sectionOrRow isKindOfClass:([GTFormRowDescriptor class])]) {
                 descriptor = ((GTFormRowDescriptor*)sectionOrRow).tag;
                 predicate = ((GTFormRowDescriptor*)sectionOrRow).disabled;

@@ -42,6 +42,7 @@
 
 //helpers
 #import "GTFormOptionsObject.h"
+#import "GTFormTool.h"
 
 //Controllers
 #import "GTFormOptionsViewController.h"

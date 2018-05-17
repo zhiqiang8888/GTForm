@@ -39,8 +39,8 @@
 -(void)showFormSection:(GTFormSectionDescriptor*)formSection;
 -(void)hideFormSection:(GTFormSectionDescriptor*)formSection;
 
--(void)addObserversOfObject:(id)sectionOrRow predicateType:(XLPredicateType)predicateType;
--(void)removeObserversOfObject:(id)sectionOrRow predicateType:(XLPredicateType)predicateType;
+-(void)addObserversOfObject:(id)sectionOrRow predicateType:(GTPredicateType)predicateType;
+-(void)removeObserversOfObject:(id)sectionOrRow predicateType:(GTPredicateType)predicateType;
 
 @end
 
@@ -73,6 +73,8 @@
         _isDirtyHidePredicateCache = YES;
         _headerHeight = UITableViewAutomaticDimension;
         _footerHeight = UITableViewAutomaticDimension;
+        _cellTitleEqualWidth = YES;
+        _cellTitleMaxWidth = 0;
         [self addObserver:self forKeyPath:@"formRows" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:0];
     }
     return self;
@@ -136,6 +138,16 @@
     if (footerHeight == 0) {
         _footerHeight = 0.1;
     }
+}
+
+- (CGFloat)cellTitleMaxWidth
+{
+    CGFloat maxTitleWidth = 0;
+    for (GTFormRowDescriptor *rowDescriptor in self.allRows) {
+        CGFloat rowWidth = [rowDescriptor.title GTForm_sizeWithFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody] maxWidth:[UIScreen mainScreen].bounds.size.width maxHeight:CGFLOAT_MAX].width;
+        maxTitleWidth = MAX(maxTitleWidth, rowWidth);
+    }
+    return maxTitleWidth;
 }
 
 -(BOOL)isMultivaluedSection
@@ -219,7 +231,7 @@
 
 -(void)dealloc
 {
-    [self.formDescriptor removeObserversOfObject:self predicateType:XLPredicateTypeHidden];
+    [self.formDescriptor removeObserversOfObject:self predicateType:GTPredicateTypeHidden];
     @try {
         [self removeObserver:self forKeyPath:@"formRows"];
     }
@@ -340,8 +352,8 @@
 {
     GTFormRowDescriptor * row = [self.allRows objectAtIndex:index];
     [self.formDescriptor removeRowFromTagCollection:row];
-    [self.formDescriptor removeObserversOfObject:row predicateType:XLPredicateTypeDisabled];
-    [self.formDescriptor removeObserversOfObject:row predicateType:XLPredicateTypeHidden];
+    [self.formDescriptor removeObserversOfObject:row predicateType:GTPredicateTypeDisabled];
+    [self.formDescriptor removeObserversOfObject:row predicateType:GTPredicateTypeHidden];
     [self.allRows removeObjectAtIndex:index];
 }
 
@@ -419,11 +431,11 @@
 -(void)setHidden:(id)hidden
 {
     if ([_hidden isKindOfClass:[NSPredicate class]]){
-        [self.formDescriptor removeObserversOfObject:self predicateType:XLPredicateTypeHidden];
+        [self.formDescriptor removeObserversOfObject:self predicateType:GTPredicateTypeHidden];
     }
     _hidden = [hidden isKindOfClass:[NSString class]] ? [hidden formPredicate] : hidden;
     if ([_hidden isKindOfClass:[NSPredicate class]]){
-        [self.formDescriptor addObserversOfObject:self predicateType:XLPredicateTypeHidden];
+        [self.formDescriptor addObserversOfObject:self predicateType:GTPredicateTypeHidden];
     }
     [self evaluateIsHidden]; // check and update if this row should be hidden.
 }

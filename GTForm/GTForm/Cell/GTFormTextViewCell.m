@@ -159,7 +159,12 @@ NSString *const GTFormTextViewMaxNumberOfCharacters = @"textViewMaxNumberOfChara
         [_dynamicCustomConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[textView]-|" options:0 metrics:0 views:views]];
     }
     else{
-        [_dynamicCustomConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[label]-[textView]-|" options:0 metrics:0 views:views]];
+        if (self.rowDescriptor.sectionDescriptor.cellTitleEqualWidth) {
+            CGFloat maxWidth = self.rowDescriptor.sectionDescriptor.cellTitleMaxWidth;
+            [_dynamicCustomConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[label(margin)]-[textView]-|" options:0 metrics:[NSDictionary dictionaryWithObjectsAndKeys:@(maxWidth), @"margin", nil] views:views]];
+        } else {
+            [_dynamicCustomConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[label]-[textView]-|" options:0 metrics:0 views:views]];
+        }
         if (self.textViewLengthPercentage) {
             [_dynamicCustomConstraints addObject:[NSLayoutConstraint constraintWithItem:_textView
                                                                               attribute:NSLayoutAttributeWidth

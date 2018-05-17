@@ -17,7 +17,6 @@
 }
 
 @property (nonatomic, strong) GTFormStaticRowDescriptor *staticRowDescriptor;
-@property (nonatomic, strong) GTFormStaticRowDescriptor *settingItem;
 
 @end
 
@@ -72,6 +71,8 @@
     self.textLabel.text       = self.staticRowDescriptor.title;
     self.detailTextLabel.text = self.staticRowDescriptor.detailTitle;
 
+    self.detailTextLabel.numberOfLines = self.staticRowDescriptor.fixedWidth ? 0 : 1;
+
     if (self.staticRowDescriptor.textFont) {
         self.textLabel.font = self.staticRowDescriptor.textFont;
     }else {
@@ -103,10 +104,11 @@
         case GTFormStaticTypeArrow:
             [self setupArrowItem];
             break;
+        case GTFormStaticTypeSwitch:
+            [self setupSwitchItem];
+            break;
         default:
-            self.accessoryView  = nil;
-            self.accessoryType  = UITableViewCellAccessoryNone;
-            self.selectionStyle = UITableViewCellSelectionStyleDefault;
+            [self setupNormalItem];
             break;
     }
 }
@@ -121,7 +123,7 @@
         self.textLabel.frame = CGRectZero;
     }
 
-    self.textLabel.left = self.imageView.right + self.staticRowDescriptor.textSpace;
+    [self setupTitleFrames];
 
     switch (self.staticRowDescriptor.staticStyle) {
         case GTFormStaticTypeIcon:
@@ -129,6 +131,12 @@
             break;
         case GTFormStaticTypeArrow:
             [self setupArrowFrames];
+            break;
+        case GTFormStaticTypeSwitch:
+            [self setupDetailFrames];
+            break;
+        case GTFormStaticTypeExit:
+            self.textLabel.center = self.contentView.center;
             break;
         default:
             [self setupDetailFrames];
@@ -140,33 +148,45 @@
 }
 
 #pragma mark - update frames
+- (void)setupTitleFrames {
+    [self.textLabel sizeToFit];
+    self.textLabel.left = self.imageView.right + self.staticRowDescriptor.textSpace;
+}
+
 - (void)setupDetailFrames {
     self.detailTextLabel.hidden = NO;
     [self.detailTextLabel sizeToFit];
 
-    if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleNone) {
-        self.detailTextLabel.hidden = YES;
-    }else if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleRight) {
-        if (self.staticRowDescriptor.staticStyle == GTFormStaticTypeArrow) {
-            self.detailTextLabel.right = self.staticRowDescriptor.hideArrow ? self.width - 15 : self.contentView.right;
-        }else {
-            if (self.accessoryView == nil || self.accessoryType == UITableViewCellAccessoryNone) {
-                self.detailTextLabel.right = self.contentView.right - 15;
+    switch (self.staticRowDescriptor.detailStyle) {
+        case GTFormStaticDetailStyleNone:
+            self.detailTextLabel.hidden = YES;
+            break;
+        case GTFormStaticDetailStyleRight:
+            if (self.staticRowDescriptor.staticStyle == GTFormStaticTypeArrow) {
+                self.detailTextLabel.right = self.staticRowDescriptor.hideArrow ? self.width - 15 : self.contentView.right;
             }else {
-                self.detailTextLabel.right = self.contentView.right;
+                if (self.accessoryView == nil || self.accessoryType == UITableViewCellAccessoryNone) {
+                    self.detailTextLabel.right = self.contentView.right - 15;
+                }else {
+                    self.detailTextLabel.right = self.contentView.right;
+                }
             }
-        }
+            break;
+        case GTFormStaticDetailStyleBottom:
+            self.textLabel.top          = 2;
+            self.detailTextLabel.bottom = self.height - 2;
+            self.detailTextLabel.left   = self.textLabel.left;
+            break;
+        default:
+            break;
+    }
 
-        self.detailTextLabel.right = self.staticRowDescriptor.hideArrow ? self.width - 15 : self.contentView.right;
-
-    }else if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleBottom) {
-        self.textLabel.top          = 2;
-        self.detailTextLabel.bottom = self.height - 2;
-        self.detailTextLabel.left   = self.textLabel.left;
-    }else if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleCenter) {
-        self.detailTextLabel.left   = self.textLabel.right + 10;
+    CGSize detailTextLabelSize = [self.detailTextLabel.text  GTForm_sizeWithFont:self.detailTextLabel.font maxWidth:self.detailTextLabel.width maxHeight:CGFLOAT_MAX];
+    if (self.staticRowDescriptor.fixedWidth) {
+        self.staticRowDescriptor.height = MAX(detailTextLabelSize.height + 16, 44);
     }
 }
+
 
 - (void)setupArrowFrames {
     [self setupDetailFrames];
@@ -178,37 +198,41 @@
 
     [self setupDetailFrames];
 
-    if (self.staticRowDescriptor.iconStyle == GTFormStaticIconStyleLeft) {
-        if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleBottom) {
-            self.textLabel.top = self.imageView.top + 5;
-            self.detailTextLabel.bottom = self.imageView.bottom - 5;
-        }
-        self.textLabel.left = self.imageView.right + self.staticRowDescriptor.textSpace;
-        self.detailTextLabel.left = self.textLabel.left;
-    }else if (self.staticRowDescriptor.iconStyle == GTFormStaticIconStyleCenter) {
-
-        self.textLabel.left = self.staticRowDescriptor.textSpace;
-        if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleCenter) {
+    switch (self.staticRowDescriptor.iconStyle) {
+        case GTFormStaticIconStyleLeft:
+            if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleBottom) {
+                self.textLabel.top = self.imageView.top + 5;
+                self.detailTextLabel.bottom = self.imageView.bottom - 5;
+            }
+            self.textLabel.left = self.imageView.right + self.staticRowDescriptor.textSpace;
             self.detailTextLabel.left = self.textLabel.left;
-        }
-        if (!self.textLabel.text || [self.textLabel.text isEqualToString:@""]) {
-            self.imageView.left = 15;
-        }else {
-            self.imageView.left = self.textLabel.right + 10;
-        }
-    }else {
-        self.textLabel.left = self.staticRowDescriptor.textSpace;
+            break;
+        case GTFormStaticIconStyleCenter:
+            self.textLabel.left = self.staticRowDescriptor.textSpace;
+            if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleCenter) {
+                self.detailTextLabel.left = self.textLabel.left;
+            }
+            if (!self.textLabel.text || [self.textLabel.text isEqualToString:@""]) {
+                self.imageView.left = 15;
+            }else {
+                self.imageView.left = self.textLabel.right + 10;
+            }
+            break;
+        case GTFormStaticIconStyleRight:
+            self.textLabel.left = self.staticRowDescriptor.textSpace;
 
-        self.imageView.right = self.staticRowDescriptor.hideArrow ? self.width - 15 : self.contentView.right;
+            self.imageView.right = self.staticRowDescriptor.hideArrow ? self.width - 15 : self.contentView.right;
 
-        if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleCenter) {
-            self.detailTextLabel.left = self.textLabel.left;
-        }else if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleRight) {
-            self.detailTextLabel.hidden = YES;
-        }
+            if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleCenter) {
+                self.detailTextLabel.left = self.textLabel.left;
+            }else if (self.staticRowDescriptor.detailStyle == GTFormStaticDetailStyleRight) {
+                self.detailTextLabel.hidden = YES;
+            }
+
+        default:
+            break;
     }
 
-    NSLog(@"%f", self.detailTextLabel.frame.origin.x);
 }
 
 - (void)setupSeparactorFrames {
@@ -249,7 +273,6 @@
                     separatorView.width = self.width;
                 }
                     break;
-
                 default:
                     break;
             }
@@ -260,6 +283,12 @@
 
 
 #pragma mark - Private Methods
+- (void)setupNormalItem {
+    self.accessoryView  = nil;
+    self.accessoryType  = UITableViewCellAccessoryNone;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
 - (void)setupIconItem {
     [self setupArrowItem];
 
@@ -288,12 +317,98 @@
     self.selectionStyle = UITableViewCellSelectionStyleDefault;
 }
 
+- (void)setupSwitchItem {
 
+    if (!_switch) {
+        _switch = [[UISwitch alloc] init];
+        [_switch addTarget:self action:@selector(switchValueChanged) forControlEvents:UIControlEventValueChanged];
+    }
+
+    _switch.on = self.staticRowDescriptor.open;
+
+    self.accessoryView  = _switch;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+- (void)switchValueChanged {
+    self.staticRowDescriptor.open = _switch.on;
+
+    !self.staticRowDescriptor.switchChangeBlock ? : self.staticRowDescriptor.switchChangeBlock(self.staticRowDescriptor.open);
+}
+
+
+#pragma mark - set/get
 - (GTFormStaticRowDescriptor *)staticRowDescriptor {
     return (GTFormStaticRowDescriptor *)self.rowDescriptor;
 }
 
-- (GTFormStaticRowDescriptor *)settingItem {
-    return (GTFormStaticRowDescriptor *)self.rowDescriptor;
+
+#pragma mark - 点击跳转
+-(void)formDescriptorCellDidSelectedWithFormController:(GTFormViewController *)controller
+{
+    if (self.rowDescriptor.action.formBlock){
+        self.rowDescriptor.action.formBlock(self.rowDescriptor);
+    }
+    else if (self.rowDescriptor.action.formSelector){
+        [controller performFormSelector:self.rowDescriptor.action.formSelector withObject:self.rowDescriptor];
+    }
+    else if ([self.rowDescriptor.action.formSegueIdentifier length] != 0){
+        [controller performSegueWithIdentifier:self.rowDescriptor.action.formSegueIdentifier sender:self.rowDescriptor];
+    }
+    else if (self.rowDescriptor.action.formSegueClass){
+        UIViewController * controllerToPresent = [self controllerToPresent];
+        NSAssert(controllerToPresent, @"either rowDescriptor.action.viewControllerClass or rowDescriptor.action.viewControllerStoryboardId or rowDescriptor.action.viewControllerNibName must be assigned");
+        UIStoryboardSegue * segue = [[self.rowDescriptor.action.formSegueClass alloc] initWithIdentifier:self.rowDescriptor.tag source:controller destination:controllerToPresent];
+        [controller prepareForSegue:segue sender:self.rowDescriptor];
+        [segue perform];
+    }
+    else{
+        UIViewController * controllerToPresent = [self controllerToPresent];
+        if (controllerToPresent){
+            if ([controllerToPresent conformsToProtocol:@protocol(GTFormRowDescriptorViewController)]){
+                ((UIViewController<GTFormRowDescriptorViewController> *)controllerToPresent).rowDescriptor = self.rowDescriptor;
+            }
+            if (controller.navigationController == nil || [controllerToPresent isKindOfClass:[UINavigationController class]] || self.rowDescriptor.action.viewControllerPresentationMode == GTFormPresentationModePresent){
+                [controller presentViewController:controllerToPresent animated:YES completion:nil];
+            }
+            else{
+                [controller.navigationController pushViewController:controllerToPresent animated:YES];
+            }
+        }
+
+    }
 }
+
+
+#pragma mark - Helpers
+
+-(UIViewController *)controllerToPresent
+{
+    if (self.rowDescriptor.action.viewControllerClass){
+        return [[self.rowDescriptor.action.viewControllerClass alloc] init];
+    }
+    else if ([self.rowDescriptor.action.viewControllerStoryboardId length] != 0){
+        UIStoryboard * storyboard =  [self storyboardToPresent];
+        NSAssert(storyboard != nil, @"You must provide a storyboard when rowDescriptor.action.viewControllerStoryboardId is used");
+        return [storyboard instantiateViewControllerWithIdentifier:self.rowDescriptor.action.viewControllerStoryboardId];
+    }
+    else if ([self.rowDescriptor.action.viewControllerNibName length] != 0){
+        Class viewControllerClass = NSClassFromString(self.rowDescriptor.action.viewControllerNibName);
+        NSAssert(viewControllerClass, @"class owner of self.rowDescriptor.action.viewControllerNibName must be equal to %@", self.rowDescriptor.action.viewControllerNibName);
+        return [[viewControllerClass alloc] initWithNibName:self.rowDescriptor.action.viewControllerNibName bundle:nil];
+    }
+    return nil;
+}
+
+-(UIStoryboard *)storyboardToPresent
+{
+    if ([self.formViewController respondsToSelector:@selector(storyboardForRow:)]){
+        return [self.formViewController storyboardForRow:self.rowDescriptor];
+    }
+    if (self.formViewController.storyboard){
+        return self.formViewController.storyboard;
+    }
+    return nil;
+}
+
 @end

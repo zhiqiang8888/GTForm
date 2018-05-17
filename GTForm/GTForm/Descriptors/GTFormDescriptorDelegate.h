@@ -28,9 +28,9 @@
 
 @class GTFormSectionDescriptor;
 
-typedef NS_ENUM(NSUInteger, XLPredicateType) {
-    XLPredicateTypeDisabled = 0,
-    XLPredicateTypeHidden
+typedef NS_ENUM(NSUInteger, GTPredicateType) {
+    GTPredicateTypeDisabled = 0,
+    GTPredicateTypeHidden
 };
 
 
@@ -46,6 +46,6 @@ typedef NS_ENUM(NSUInteger, XLPredicateType) {
 -(void)formRowDescriptorPredicateHasChanged:(GTFormRowDescriptor *)formRow
                                    oldValue:(id)oldValue
                                    newValue:(id)newValue
-                              predicateType:(XLPredicateType)predicateType;
+                              predicateType:(GTPredicateType)predicateType;
 
 @end

@@ -48,6 +48,10 @@ typedef NS_ENUM(NSUInteger, GTFormSectionInsertMode) {
 @property (nonatomic) CGFloat headerHeight;             
 @property (nonatomic) CGFloat footerHeight;
 
+
+@property (nonatomic, assign) BOOL cellTitleEqualWidth;
+@property (nonatomic) CGFloat cellTitleMaxWidth;
+
 @property (readonly) GTFormSectionInsertMode sectionInsertMode;
 @property (readonly) GTFormSectionOptions sectionOptions;
 @property (nullable) GTFormRowDescriptor * multivaluedRowTemplate;

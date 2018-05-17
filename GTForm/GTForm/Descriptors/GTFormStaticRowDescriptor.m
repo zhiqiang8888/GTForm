@@ -59,13 +59,39 @@
     _detailTextColor = nil;
     _textFont = nil;
     _detailTextFont = nil;
+    _iconStyle = GTFormStaticIconStyleLeft;
+    _detailStyle = GTFormStaticDetailStyleNone;
     _separatorAlignType = GTFormStaticCellSeparatorAlignTypeImage;
-    _detailStyle = GTFormStaticDetailStyleBottom;
     _iconSize = CGSizeMake(30, 30);
     _iconCornerRadius = 5;
     _iconBorderWidth = 0;
-    _iconStyle = GTFormStaticIconStyleLeft;
     _hideArrow = NO;
+    _defaultStatus = NO;
+    _fixedWidth = NO;
+}
+
+
+- (void)setOpen:(BOOL)open {
+    [GTFormTool setBool:open forKey:self.tag];
+}
+
+- (BOOL)open {
+    return [GTFormTool boolForKey:self.tag];
+}
+
+- (void)setDefaultStatus:(BOOL)defaultStatus {
+    _defaultStatus = defaultStatus;
+
+    // 判断key属性是否设置
+    NSAssert(self.tag && ![self.tag isEqualToString:@""], @"未设置key属性");
+
+    NSString *isSettingKey = [self.tag stringByAppendingString:@"_isSetting"];
+
+    BOOL isSetting = [GTFormTool boolForKey:isSettingKey];
+    if (!isSetting) {
+        [GTFormTool setBool:YES forKey:isSettingKey];
+        [GTFormTool setBool:defaultStatus forKey:self.tag];
+    }
 }
 
 

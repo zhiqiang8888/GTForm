@@ -308,7 +308,7 @@
     [self updateAfterDependentRowChanged:formRow];
 }
 
--(void)formRowDescriptorPredicateHasChanged:(GTFormRowDescriptor *)formRow oldValue:(id)oldValue newValue:(id)newValue predicateType:(XLPredicateType)predicateType
+-(void)formRowDescriptorPredicateHasChanged:(GTFormRowDescriptor *)formRow oldValue:(id)oldValue newValue:(id)newValue predicateType:(GTPredicateType)predicateType
 {
     if (oldValue != newValue) {
         [self updateAfterDependentRowChanged:formRow];
@@ -317,8 +317,8 @@
 
 -(void)updateAfterDependentRowChanged:(GTFormRowDescriptor *)formRow
 {
-    NSMutableArray* revaluateHidden   = self.form.rowObservers[[formRow.tag formKeyForPredicateType:XLPredicateTypeHidden]];
-    NSMutableArray* revaluateDisabled = self.form.rowObservers[[formRow.tag formKeyForPredicateType:XLPredicateTypeDisabled]];
+    NSMutableArray* revaluateHidden   = self.form.rowObservers[[formRow.tag formKeyForPredicateType:GTPredicateTypeHidden]];
+    NSMutableArray* revaluateDisabled = self.form.rowObservers[[formRow.tag formKeyForPredicateType:GTPredicateTypeDisabled]];
     for (id object in revaluateDisabled) {
         if ([object isKindOfClass:[NSString class]]) {
             GTFormRowDescriptor* row = [self.form formRowWithTag:object];
@@ -722,12 +722,10 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    NSLog(@"headerHeight%f", [[self.form.formSections objectAtIndex:section] headerHeight]);
     return [[self.form.formSections objectAtIndex:section] headerHeight];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    NSLog(@"footerHeight%f", [[self.form.formSections objectAtIndex:section] footerHeight]);
     return [[self.form.formSections objectAtIndex:section] footerHeight];
 }
 

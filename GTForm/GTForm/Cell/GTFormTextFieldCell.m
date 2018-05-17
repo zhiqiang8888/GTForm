@@ -222,7 +222,12 @@ NSString *const GTFormTextFieldMaxNumberOfCharacters = @"textFieldMaxNumberOfCha
     if (self.imageView.image){
         views[@"image"] = self.imageView;
         if (self.textLabel.text.length > 0){
-            self.dynamicCustomConstraints = [NSMutableArray arrayWithArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[image]-[label]-[textField]-|" options:0 metrics:nil views:views]];
+            if (self.rowDescriptor.sectionDescriptor.cellTitleEqualWidth) {
+                CGFloat maxWidth = self.rowDescriptor.sectionDescriptor.cellTitleMaxWidth;
+                self.dynamicCustomConstraints = [NSMutableArray arrayWithArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[image]-[label(margin)]-[textField]-|" options:0 metrics:[NSDictionary dictionaryWithObjectsAndKeys:@(maxWidth), @"margin", nil] views:views]];
+            } else {
+                self.dynamicCustomConstraints = [NSMutableArray arrayWithArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[image]-[label]-[textField]-|" options:0 metrics:nil views:views]];
+            }
             [self.dynamicCustomConstraints addObject:[NSLayoutConstraint constraintWithItem:_textField
                                                                                   attribute:NSLayoutAttributeWidth
                                                                                   relatedBy:self.textFieldLengthPercentage ? NSLayoutRelationEqual : NSLayoutRelationGreaterThanOrEqual
@@ -237,7 +242,12 @@ NSString *const GTFormTextFieldMaxNumberOfCharacters = @"textFieldMaxNumberOfCha
     }
     else{
         if (self.textLabel.text.length > 0){
-            self.dynamicCustomConstraints = [NSMutableArray arrayWithArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[label]-[textField]-|" options:0 metrics:nil views:views]];
+            if (self.rowDescriptor.sectionDescriptor.cellTitleEqualWidth) {
+                CGFloat maxWidth = self.rowDescriptor.sectionDescriptor.cellTitleMaxWidth;
+                self.dynamicCustomConstraints = [NSMutableArray arrayWithArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[label(margin)]-[textField]-|" options:0 metrics:[NSDictionary dictionaryWithObjectsAndKeys:@(maxWidth), @"margin", nil] views:views]];
+            } else {
+                self.dynamicCustomConstraints = [NSMutableArray arrayWithArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[label]-[textField]-|" options:0 metrics:nil views:views]];
+            }
             [self.dynamicCustomConstraints addObject:[NSLayoutConstraint constraintWithItem:_textField
                                                                                   attribute:NSLayoutAttributeWidth
                                                                                   relatedBy:self.textFieldLengthPercentage ? NSLayoutRelationEqual : NSLayoutRelationGreaterThanOrEqual

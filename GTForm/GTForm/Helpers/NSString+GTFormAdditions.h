@@ -30,7 +30,7 @@
 
 -(NSPredicate *)formPredicate;
 
--(NSString *)formKeyForPredicateType:(XLPredicateType)predicateType;
+-(NSString *)formKeyForPredicateType:(GTPredicateType)predicateType;
 
 - (CGSize)GTForm_sizeWithFont:(UIFont *)font maxWidth:(CGFloat)maxWidth maxHeight:(CGFloat)maxHeight;
 
