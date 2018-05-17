@@ -183,7 +183,7 @@
 
     CGSize detailTextLabelSize = [self.detailTextLabel.text  GTForm_sizeWithFont:self.detailTextLabel.font maxWidth:self.detailTextLabel.width maxHeight:CGFLOAT_MAX];
     if (self.staticRowDescriptor.fixedWidth) {
-        self.staticRowDescriptor.height = MAX(detailTextLabelSize.height + 16, 44);
+        self.staticRowDescriptor.height = MAX(detailTextLabelSize.height + 30, 44);
     }
 }
 
